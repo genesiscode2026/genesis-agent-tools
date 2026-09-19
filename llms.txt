@@ -1,0 +1,19 @@
+# GENESIS Compatibility Preflight
+Free classifier for API/MCP/SDK contract inputs that routes to exactly one paid compatibility check.
+Price: 0 USDC (Base)
+Endpoint: /api/preflight
+
+# MCP Schema Drift Gate
+MCP schema compatibility check that detects breaking drift between two MCP tool manifests.
+Price: 0.05 USDC (Base)
+Endpoint: /api/mcp-schema-drift
+
+# OpenAPI Breaking Change Gate
+OpenAPI breaking change detection between two OpenAPI specifications.
+Price: 0.05 USDC (Base)
+Endpoint: /api/openapi-breaking-change
+
+# SDK Compatibility Gate
+SDK backwards compatibility validation between two SDK/API export manifests.
+Price: 0.10 USDC (Base)
+Endpoint: /api/sdk-compatibility
