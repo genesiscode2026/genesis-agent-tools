@@ -4,7 +4,7 @@ Deterministic, pay-per-call compatibility gates for AI agents and CI/CD pipeline
 **Settlement: USDC on Base (x402).** No LLM, no paid API, no proprietary source in this repo.
 
 ## Public origin
-`https://genesis-agent-tools.rapid-freighter.workers.dev` (temporary Cloudflare pilot — see `/status`)
+`https://genesis-agent-tools.genesisagenttools.workers.dev` (stable — see `/status`)
 
 ## Services
 
