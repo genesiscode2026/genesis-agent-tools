@@ -7,27 +7,38 @@ the premium result.
 
 **Live origin:** `https://genesis-agent-tools.genesisagenttools.workers.dev`
 
-## What can I buy? (5 flagships)
+## Release Guardian (primary)
+
+**Pay-per-call x402 API that checks API/schema changes for breaking compatibility
+before release.**
+
+- **Endpoint:** `POST /api/flagships/release-guardian`
+- **Input:** `{ "tier": "quick", "input": { "previous": …, "current": … } }`
+- **Output:** `SAFE` / `RISKY` / `BREAKING` / `UNKNOWN` / `UNSUPPORTED`
+- **Price:** Quick **$0.005** · Deep $0.019 (USDC)
+- **Network:** Base (`eip155:8453`) · USDC · non-custodial (EIP-3009)
+
+```bash
+curl -sS -D - -X POST \
+  https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/release-guardian \
+  -H 'content-type: application/json' \
+  -d '{"tier":"quick","input":{"previous":{"paths":{"/users":{},"/users/{id}":{}}},"current":{"paths":{"/users":{}}}}}'
+# → HTTP 402 with a base64 PAYMENT-REQUIRED header; sign & retry to get SAFE/RISKY/BREAKING
+```
+
+Runnable CI examples (GitHub Actions, shell, JS): [`examples/release-guardian/`](examples/release-guardian).
+
+## Other flagships
 
 | Flagship | What it does (buyer intent) | Endpoint | Quick | Deep |
 |---|---|---|---|---|
-| **Asset Intelligence** | Verify a crypto asset's live multi-source price, freshness, and on-chain owner before a trade. | `POST /api/flagships/asset-intelligence` | 0.005 | 0.025 |
-| **Research & Evidence** | Extract cited claims and contradictions from supplied URLs into a bounded evidence synthesis. | `POST /api/flagships/research-evidence` | 0.005 | 0.040 |
-| **Workflow Runner** | Validate or run a bounded HTTP/JSON workflow with a deterministic trace and durable checkpoints. | `POST /api/flagships/workflow-runner` | 0.005 | 0.035 |
-| **Release Guardian** | Detect breaking API/OpenAPI/schema changes and release risk between two versions. | `POST /api/flagships/release-guardian` | 0.005 | 0.019 |
+| **Workflow Runner** | Validate or run a bounded HTTP/JSON workflow with a deterministic trace. | `POST /api/flagships/workflow-runner` | 0.005 | 0.035 |
+| **Asset Intelligence** | Verify a crypto asset's live multi-source price, freshness, and on-chain owner. | `POST /api/flagships/asset-intelligence` | 0.005 | 0.025 |
+| **Research & Evidence** | Extract cited claims and contradictions from supplied URLs. | `POST /api/flagships/research-evidence` | 0.005 | 0.040 |
 | **Agent Assurance** | Audit an agent or MCP server for readiness, observed risk, and evidence. | `POST /api/flagships/agent-assurance` | 0.005 | 0.029 |
 
-All prices in **USDC**. All Quick products are ≤ $0.005 (Agent402 `execute` tier);
-all Deep products are ≤ $0.040 (Agent402 `execute-plus` tier).
-
-## How do I call it? (curl)
-
-```bash
-curl -X POST https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/asset-intelligence \
-  -H 'content-type: application/json' \
-  -d '{"tier":"quick","input":{"symbol":"BTC"}}'
-# → HTTP 402 with a base64 PAYMENT-REQUIRED header (payTo/asset/network/amount)
-```
+All prices in **USDC**. All Quick ≤ $0.005 (Agent402 `execute`); all Deep ≤ $0.040
+(`execute-plus`). Bounded workflow example: [`examples/workflow-runner/`](examples/workflow-runner).
 
 ## How do I pay? (x402 v2)
 
@@ -39,6 +50,9 @@ curl -X POST https://genesis-agent-tools.genesisagenttools.workers.dev/api/flags
 An x402 client decodes the 402, signs the EIP-3009 USDC authorization, and retries
 with the `PAYMENT-SIGNATURE` header. See `examples/` for runnable curl + JavaScript
 (`@x402/fetch`) buyers — replace only the funded buyer key.
+
+The Agent402 50-settlement gate affects Agent402 **auto-dispatch only**; direct
+x402 buyers (these examples) can purchase without Agent402 routing.
 
 ## Machine discovery
 

@@ -1,0 +1,35 @@
+# Release Guardian — GitHub Actions CI gate example.
+#
+# Place this under .github/workflows/ in a repo, add the buyer wallet as a
+# secret (Settings → Secrets and variables → Actions) named BUYER_PRIVATE_KEY
+# (a Base USDC-funded EIP-3009 signing key), then point PREVIOUS_FILE /
+# CURRENT_FILE at two spec revisions you want to compare.
+#
+# The step fails the workflow on BREAKING (exit 1) or RISKY (exit 2), so a
+# breaking API change blocks the release. The 402 payment step is handled by
+# the stock x402 client inside ci-check.mjs.
+
+name: release-guardian
+
+on:
+  pull_request:
+    paths:
+      - 'specs/**'
+
+jobs:
+  breaking-change-check:
+    runs-on: ubuntu-latest
+    env:
+      BUYER_PRIVATE_KEY: ${{ secrets.BUYER_PRIVATE_KEY }}
+      # PREVIOUS_FILE: specs/v1.json
+      # CURRENT_FILE: specs/v2.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm i @x402/fetch @x402/evm viem
+      - name: Check for breaking API changes (x402)
+        run: node examples/release-guardian/ci-check.mjs
+        # Exit 1 (BREAKING) / 2 (RISKY) fails the job; 0 (SAFE) passes.
+        # 42 (no wallet) fails too — the buyer wallet must be configured to pay.
