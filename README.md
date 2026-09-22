@@ -28,6 +28,34 @@ curl -sS -D - -X POST \
 
 Runnable CI examples (GitHub Actions, shell, JS): [`examples/release-guardian/`](examples/release-guardian).
 
+### GitHub Action
+
+```yaml
+- uses: genesiscode2026/genesis-release-guardian@v1
+  with:
+    previous-spec: spec/openapi.baseline.json
+    current-spec: spec/openapi.json
+    mode: quick
+    fail-on: breaking
+    max-spend-usd: '0.01'
+    private-key: ${{ secrets.X402_PRIVATE_KEY }}
+```
+
+The action reads only the two spec files you supply, enforces a spending ceiling
+against the live 402 challenge before signing, and never holds your key. Live demo:
+[`genesiscode2026/release-guardian-demo`](https://github.com/genesiscode2026/release-guardian-demo).
+
+### MCP
+
+```bash
+npx -y genesis-agent-mcp
+```
+
+A thin buyer-side MCP adapter exposes Release Guardian + Workflow Runner (and the
+other flagships) as tools for Cline / Claude / Cursor. Buyer key via
+`X402_PRIVATE_KEY` (never committed); per-call ceiling + session budget built in.
+Config: [`mcp/README.md`](mcp/README.md).
+
 ## Other flagships
 
 | Flagship | What it does (buyer intent) | Endpoint | Quick | Deep |
@@ -75,6 +103,17 @@ x402 buyers (these examples) can purchase without Agent402 routing.
 
 No private keys or seed material in this repository. GENESIS never holds buyer
 funds and never requests private keys. Report issues via GitHub Issues. See `SECURITY.md`.
+
+## Privacy
+
+The GitHub Action and MCP adapter transmit only the API/schema artifacts you
+explicitly supply. Nothing else in your repository is read or uploaded; there is no
+server-side repo cloning, no IP/geolocation persistence, and no analytics trackers.
+Payment wallet addresses are necessarily public/on-chain.
+
+## Contact
+
+`chitara.trading@proton.me` — technical support, ownership verification, and security.
 
 ## License
 
