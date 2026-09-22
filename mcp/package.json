@@ -1,14 +1,43 @@
 {
   "name": "genesis-agent-mcp",
   "version": "1.0.0",
-  "private": true,
+  "mcpName": "io.github.genesiscode2026/genesis-agent-mcp",
+  "description": "Thin buyer-side MCP adapter for GENESIS Agent Tools — pay-per-call x402 flagships (Release Guardian + Workflow Runner primary). No account, no API key; payment is x402 USDC on Base.",
   "type": "module",
-  "description": "Thin buyer-side MCP adapter for GENESIS Agent Tools (x402 pay-per-call flagships).",
+  "license": "MIT",
   "bin": {
     "genesis-agent-mcp": "src/server.mjs"
   },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "x402",
+    "release-guardian",
+    "workflow-runner",
+    "api-compatibility",
+    "breaking-change",
+    "genesis"
+  ],
+  "author": "GENESIS Agent Tools <chitara.trading@proton.me>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genesiscode2026/genesis-agent-tools.git",
+    "directory": "mcp"
+  },
+  "homepage": "https://genesis-agent-tools.genesisagenttools.workers.dev",
+  "bugs": {
+    "url": "https://github.com/genesiscode2026/genesis-agent-tools/issues"
+  },
   "scripts": {
-    "start": "node src/server.mjs"
+    "start": "node src/server.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@x402/evm": "2.26.0",

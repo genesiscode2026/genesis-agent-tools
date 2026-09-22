@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // GENESIS Agent Tools — thin buyer-side MCP adapter.
 //
 // Exposes the five GENESIS flagships as MCP tools over stdio (JSON-RPC).

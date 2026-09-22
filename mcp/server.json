@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.genesiscode2026/genesis-agent-mcp",
+  "description": "GENESIS Agent Tools MCP — pay-per-call x402 APIs for AI agents on Base USDC. Primary: Release Guardian (detect breaking API/OpenAPI/GraphQL/schema changes) and Workflow Runner (bounded HTTP/JSON workflows).",
+  "repository": {
+    "url": "https://github.com/genesiscode2026/genesis-agent-tools",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "genesis-agent-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "X402_PRIVATE_KEY",
+          "description": "Buyer x402 EIP-3009 signing key funded with USDC on Base. Never commit it.",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "GENESIS_MAX_SPEND_USD",
+          "description": "Per-call spending ceiling in USDC (default 0.02).",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        },
+        {
+          "name": "GENESIS_SESSION_BUDGET_USD",
+          "description": "Session spending budget in USDC (default 1.00).",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}
