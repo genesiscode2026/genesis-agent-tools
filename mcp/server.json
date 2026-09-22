@@ -9,9 +9,9 @@
   "version": "1.0.0",
   "packages": [
     {
-      "registryType": "npm",
-      "identifier": "genesis-agent-mcp",
-      "version": "1.0.0",
+      "registryType": "mcpb",
+      "identifier": "https://github.com/genesiscode2026/genesis-agent-tools/releases/download/v1.0.0/genesis-agent-mcp-v1.0.0.mcpb",
+      "fileSha256": "cc816a94b6d1d1f046bf58735dfb2345f3f760c8fef6995035a27f5fdb4bc29c",
       "transport": {
         "type": "stdio"
       },
