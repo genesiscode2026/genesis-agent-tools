@@ -1,0 +1,18 @@
+{
+  "name": "genesis-agent-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Thin buyer-side MCP adapter for GENESIS Agent Tools (x402 pay-per-call flagships).",
+  "bin": {
+    "genesis-agent-mcp": "src/server.mjs"
+  },
+  "scripts": {
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@x402/evm": "2.26.0",
+    "@x402/fetch": "2.26.0",
+    "viem": "2.56.8"
+  }
+}
