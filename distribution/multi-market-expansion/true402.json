@@ -1,0 +1,14 @@
+{
+  "platform": "true402",
+  "verified_at_utc": "2026-09-23",
+  "result": "UNVERIFIABLE_PLATFORM",
+  "registration_status": "NOT_ATTEMPTED",
+  "reason": "No verifiable platform or registration endpoint exists.",
+  "evidence": {
+    "dns_true402_com": "NXDOMAIN",
+    "dns_true402_io": "NXDOMAIN",
+    "web_search": "zero relevant results",
+    "project_reference": "none"
+  },
+  "human_action_required": "NONE"
+}

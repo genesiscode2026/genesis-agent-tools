@@ -1,0 +1,14 @@
+{
+  "platform": "fiatdock",
+  "verified_at_utc": "2026-09-23",
+  "result": "UNVERIFIABLE_PLATFORM",
+  "registration_status": "NOT_ATTEMPTED",
+  "reason": "No verifiable platform or registration endpoint exists.",
+  "evidence": {
+    "dns_fiatdock_com": "resolves (151.80.233.8) but no marketplace content found",
+    "dns_fiatdock_io": "NXDOMAIN",
+    "web_search": "zero relevant results (no seller/payment platform)",
+    "project_reference": "none"
+  },
+  "human_action_required": "NONE"
+}
