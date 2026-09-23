@@ -68,7 +68,22 @@ Config: [`mcp/README.md`](mcp/README.md).
 All prices in **USDC**. Release Guardian Quick is the $0.001 acquisition wedge; all other Quick ≤ $0.005 (Agent402 `execute`); all Deep ≤ $0.040
 (`execute-plus`). Bounded workflow example: [`examples/workflow-runner/`](examples/workflow-runner).
 
+## Availability
+
+Live / submitted distribution surfaces (machine-native, no account, no API key):
+
+| Channel | Status | Link |
+|---|---|---|
+| Agent402 | INDEXED (health 1.0; dispatch gated by settlement floor) | `https://agent402.tools` |
+| x402scan | LISTED | `https://www.x402scan.com/server/c6741010-aff0-42ae-85dc-a28523d26cb2` |
+| MCP Registry | LIVE v1.0.0 | `io.github.genesiscode2026/genesis-agent-mcp` |
+| true402 | REGISTERED (free discovery) | `https://true402.dev/catalog` |
+| PayAPI Market | SUBMITTED (review + verification pending) | `https://payapi.market/marketplace` |
+| FiatDock | SELLER REGISTERED (paid MCP listing pending a Streamable-HTTP MCP endpoint) | `https://fiatdock.com/browse` |
+| PayanAgent | registration endpoint returned 500 (retried) — pending | `https://payanagent.com` |
+
 ## How do I pay? (x402 v2)
+
 
 - Network: **Base** (`eip155:8453`)
 - Asset: **USDC** (`0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`)

@@ -1,0 +1,15 @@
+{
+  "platform": "true402",
+  "verified_at_utc": "2026-09-23",
+  "result": "TRUE402_REGISTERED",
+  "listing_id": "4b4b6309-2a0f-4849-8b43-4a6b38a93414",
+  "url": "https://genesis-agent-tools.genesisagenttools.workers.dev",
+  "name": "GENESIS Agent Tools — Release Guardian",
+  "price": "0.001 USDC",
+  "endpoint": "https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/release-guardian",
+  "payment": { "address": "0xC6F86e170411182114FcCdb28793dC76B5e8D144", "chain": "base", "facilitator": "https://facilitator.payai.network" },
+  "reputation": { "trustScore": 0, "transactions": 0, "isNew": true },
+  "public_catalog_url": "https://true402.dev/catalog",
+  "http_status": 201,
+  "note": "true402 third-party listings start at trustScore 0 (its own section 04: it does not ingest external settlement history)."
+}
