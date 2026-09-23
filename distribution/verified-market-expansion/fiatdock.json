@@ -1,14 +1,20 @@
 {
   "platform": "fiatdock",
   "verified_at_utc": "2026-09-23",
-  "result": "FIATDOCK_SELLER_REGISTERED",
+  "result": "FIATDOCK_SERVICES_LIVE",
   "seller_id": "sel_70d00914-a72d-46b6-a59e-ac6da05c14a7",
   "payout_wallet": "0xC6F86e170411182114FcCdb28793dC76B5e8D144",
   "display_name": "GENESIS Agent Tools",
-  "seller_key_stored": "macOS Keychain (GENESIS_FIATDOCK_SELLER_KEY)",
-  "services_status": "BLOCKED_INFRASTRUCTURE",
-  "services_reason": "FiatDock paid listings require a Streamable-HTTP MCP endpoint (mcpEndpoint + mcpTool). GENESIS exposes x402 HTTP routes (POST /api/flagships/*) plus a stdio MCP server (npx genesis-agent-mcp) — no hosted Streamable-HTTP MCP endpoint. A hosted MCP-over-HTTP wrapper (e.g. mcp-proxy/supergateway) would be required before publishing paid FiatDock services.",
-  "verified_badge": "NOT_PURCHASED (optional $20/mo + KYC — skipped per policy)",
-  "free_tier": "used (no KYC, no subscription)",
+  "mcp_endpoint": "https://genesis-agent-tools.genesisagenttools.workers.dev/mcp",
+  "services": [
+    { "id": "svc_066dd8bf-32af-4a7c-a079-cc796cec10f7", "tool": "genesis_release_guardian", "name": "GENESIS Release Guardian", "priceUsd": 0.001 },
+    { "id": "svc_13d0eb76-3e2c-45ce-baed-4d6fa59a90be", "tool": "genesis_workflow_runner", "name": "GENESIS Workflow Runner", "priceUsd": 0.005 },
+    { "id": "svc_6fed7348-b093-4c98-b76d-034fd703ce01", "tool": "genesis_research_evidence", "name": "GENESIS Research & Evidence", "priceUsd": 0.005 },
+    { "id": "svc_955c6b48-3108-4bf3-b7c2-b35b4ad8a001", "tool": "genesis_asset_intelligence", "name": "GENESIS Asset Intelligence", "priceUsd": 0.005 },
+    { "id": "svc_3c4fdd12-6a9a-4031-a544-944db5f6c236", "tool": "genesis_agent_assurance", "name": "GENESIS Agent Assurance", "priceUsd": 0.005 }
+  ],
+  "public_visibility": "5/5 visible via GET /v1/marketplace/services?q=genesis",
+  "verified_badge": "NOT_PURCHASED (optional $20/mo + KYC — skipped)",
   "human_action_required": "NONE"
 }
+

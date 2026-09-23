@@ -51,6 +51,13 @@ against the live 402 challenge before signing, and never holds your key. Live de
 npx -y genesis-agent-mcp
 ```
 
+Two transports for the same five flagship tools:
+
+- **Local / package (stdio):** `npx -y genesis-agent-mcp`
+- **Hosted Streamable HTTP:** `https://genesis-agent-tools.genesisagenttools.workers.dev/mcp`
+  (`initialize` / `tools/list` / `tools/call`; stateless JSON-RPC; paid tools return the
+  x402 challenge unless the request carries a valid `PAYMENT-SIGNATURE` header)
+
 A thin buyer-side MCP adapter exposes Release Guardian + Workflow Runner (and the
 other flagships) as tools for Cline / Claude / Cursor. Buyer key via
 `X402_PRIVATE_KEY` (never committed); per-call ceiling + session budget built in.
@@ -79,7 +86,7 @@ Live / submitted distribution surfaces (machine-native, no account, no API key):
 | MCP Registry | LIVE v1.0.0 | `io.github.genesiscode2026/genesis-agent-mcp` |
 | true402 | REGISTERED (free discovery) | `https://true402.dev/catalog` |
 | PayAPI Market | SUBMITTED (review + verification pending) | `https://payapi.market/marketplace` |
-| FiatDock | SELLER REGISTERED (paid MCP listing pending a Streamable-HTTP MCP endpoint) | `https://fiatdock.com/browse` |
+| FiatDock | SELLER LIVE · 5 services published | `https://fiatdock.com/browse` |
 | PayanAgent | registration endpoint returned 500 (retried) — pending | `https://payanagent.com` |
 
 ## How do I pay? (x402 v2)
