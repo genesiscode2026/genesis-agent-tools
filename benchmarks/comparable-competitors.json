@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-09-23",
+  "method": "live Agent402 route API (https://agent402.tools/api/route?q=) sampled 2026-09-23",
+  "genesis_prices_usdc": {
+    "release-guardian": { "quick": 0.005, "deep": 0.019 },
+    "asset-intelligence": { "quick": 0.005, "deep": 0.025 },
+    "research-evidence": { "quick": 0.005, "deep": 0.040 },
+    "workflow-runner": { "quick": 0.005, "deep": 0.035 },
+    "agent-assurance": { "quick": 0.005, "deep": 0.029 }
+  },
+  "direct_equivalents": [
+    {
+      "genesis_flagship": "release-guardian",
+      "buyer_job": "detect breaking API/OpenAPI/schema changes",
+      "competitor": "https://api.delx.ai",
+      "tool": "util_openapi_breaking_change",
+      "price_usdc": 0.002,
+      "routerDispatchEligible": true,
+      "health": 1,
+      "score": 28,
+      "traction": { "calls30d": 531, "payers30d": 12 },
+      "classification": "DIRECT_EQUIVALENT",
+      "note": "Output materially equivalent (OpenAPI breaking-change detection). Cheaper AND dispatch-eligible vs GENESIS ($0.005, settlement_required)."
+    },
+    {
+      "genesis_flagship": "release-guardian",
+      "buyer_job": "OpenAPI breaking change report",
+      "competitor": "https://ai-data-marketplace-1042299154756.us-central1.run.app",
+      "tool": "openapi_change_report",
+      "price_usdc": 0.01,
+      "routerDispatchEligible": true,
+      "health": 1,
+      "score": 22,
+      "classification": "DIRECT_EQUIVALENT",
+      "note": "Higher price than GENESIS Quick but dispatch-eligible."
+    }
+  ],
+  "partial_substitutes": [
+    {
+      "genesis_flagship": "agent-assurance",
+      "buyer_job": "MCP server readiness audit",
+      "competitor": "https://x402.agentutility.ai",
+      "price_usdc": 0.06,
+      "routerDispatchEligible": true,
+      "score": 39,
+      "classification": "PARTIAL_SUBSTITUTE",
+      "note": "Scores above GENESIS (28) for 'audit MCP server readiness'; dispatch-eligible."
+    },
+    {
+      "genesis_flagship": "agent-assurance",
+      "buyer_job": "tool contract validation",
+      "competitor": "https://api.delx.ai",
+      "price_usdc": 0.001,
+      "routerDispatchEligible": true,
+      "classification": "PARTIAL_SUBSTITUTE",
+      "note": "Delx 'tool contract lint' at $0.001 dominates the 'MCP tool contract validation' intent (GENESIS absent)."
+    },
+    {
+      "genesis_flagship": "workflow-runner",
+      "buyer_job": "bounded HTTP/JSON workflow",
+      "competitor": "https://api.delx.ai",
+      "price_usdc": 0.002,
+      "routerDispatchEligible": true,
+      "classification": "PARTIAL_SUBSTITUTE",
+      "note": "Delx workflow tools at $0.002-$0.003; GENESIS ranks #1 on score for 'run bounded HTTP JSON workflow' but is not dispatch-eligible."
+    },
+    {
+      "genesis_flagship": "asset-intelligence",
+      "buyer_job": "crypto price consensus",
+      "competitor": "https://2s-rjsw718bb-alleyford.vercel.app",
+      "price_usdc": 0.0018,
+      "routerDispatchEligible": true,
+      "classification": "PARTIAL_SUBSTITUTE",
+      "note": "Price oracle competitor at $0.0018, dispatch-eligible."
+    }
+  ],
+  "false_matches": [
+    "https://api.andromalius.io (x402 discovery audit) — settlement_required, lexical collision only",
+    "https://agents.samedaydesk.com (seller integrity audit) — settlement_required, different buyer job",
+    "https://hermes-counterparty-api.onrender.com — different job"
+  ],
+  "conclusion": "No DIRECT_EQUIVALENT is priced above GENESIS Quick ($0.005) for breaking-change detection; the closest direct equivalent (delx) is 2.5x cheaper AND dispatch-eligible. The binding constraint is dispatch eligibility (settlement floor), not price: GENESIS is settlement_required on every route because it has no distinct-payer on-chain history (0 independent buyers), which cannot be remedied by price or metadata changes and must not be fabricated."
+}
