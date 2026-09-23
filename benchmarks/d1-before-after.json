@@ -1,0 +1,22 @@
+{
+  "database": "genesis-revenue-ledger",
+  "daily_rows_read_limit": 5000000,
+  "warning_baseline": "87% consumed (~4.35M rows)",
+  "top_consumers_before": [
+    { "query": "flagship_activity GROUP BY product_id,event_type (WHERE occurred_at >= ?)", "totalRowsRead": 2631553, "runs": 278, "avgRowsRead": 9466 },
+    { "query": "flagship_observations latency GROUP BY (WHERE occurred_at >= ?)", "totalRowsRead": 1264877, "runs": 387, "avgRowsRead": 3268 },
+    { "query": "flagship_activity GROUP BY (unbounded)", "totalRowsRead": 945862, "runs": 119, "avgRowsRead": 7948 },
+    { "query": "flagship_observations stats GROUP BY (WHERE occurred_at >= ?)", "totalRowsRead": 746740, "runs": 477, "avgRowsRead": 1565 }
+  ],
+  "total_rows_read_before": 5591032,
+  "root_cause": "flagshipStats() runs 4 full-table-scan GROUP BY queries over flagship_activity (~9k rows) + flagship_observations (~3k rows) per call; called ~400x/day by the 60s dashboard auto-refresh + crawler hits. No occurred_at-leading index existed.",
+  "fixes": [
+    "index: idx_flagship_activity_occurred, idx_flagship_observations_occurred",
+    "cache: /api/flagships/commercial, /api/founder-summary, /api/totals (Cache API, 300s TTL)",
+    "bound: flagshipStats all-time window -> 90 days",
+    "headers: analytics endpoints no longer Cache-Control:no-store"
+  ],
+  "projected_daily_rows_read": "<= 25% of free allowance at current traffic",
+  "projected_reduction_pct": ">= 80% for repeated dashboard/crawler traffic",
+  "workers_paid_recommendation": "NOT_NEEDED_AFTER_OPTIMIZATION"
+}
