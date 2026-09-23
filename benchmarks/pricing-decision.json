@@ -1,0 +1,18 @@
+{
+  "generated_at_utc": "2026-09-23",
+  "acquisition_wedge": {
+    "flagship": "release-guardian",
+    "tier": "quick",
+    "old_price_usdc": 0.005,
+    "new_price_usdc": 0.001,
+    "marginal_cost_usdc": 0,
+    "upstream_cost_usdc": 0,
+    "direct_competitor": "https://api.delx.ai (util_openapi_breaking_change)",
+    "competitor_price_usdc": 0.002,
+    "competitor_dispatch_eligible": true,
+    "target_intent": "detect breaking API/OpenAPI change",
+    "rationale": "Release Guardian is the highest-ranking flagship (top-1 to top-3 on breaking-change intents, score 28-39, health 1.0). Its only direct-equivalent dispatch-eligible competitor (delx) is $0.002. Setting the launch Quick price to $0.001 makes GENESIS the cheapest deterministic breaking-change check while it builds independent settlement history. Deep tier unchanged ($0.019)."
+  },
+  "unit_economics_note": "Quick is deterministic with zero upstream cost; the only variable is the x402 facilitator settlement fee. $0.001 is the floor specified by the directive and remains above zero marginal compute cost. If facilitator settlement fees later prove negative at this price, the next economically-safe price above the cheapest direct equivalent ($0.002) should be used.",
+  "other_price_changes": []
+}

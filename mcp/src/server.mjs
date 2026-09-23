@@ -22,8 +22,8 @@ const BASE_RPC = process.env.GENESIS_RPC || 'https://mainnet.base.org';
 
 const FLAGSHIPS = {
   release_guardian: {
-    slug: 'release-guardian', price: { quick: 0.005, deep: 0.019 },
-    description: 'Detect breaking API/OpenAPI/GraphQL/schema changes between two versions. Quick 0.005 USDC, deep 0.019 USDC.',
+    slug: 'release-guardian', price: { quick: 0.001, deep: 0.019 },
+    description: 'Detect breaking API/OpenAPI/GraphQL/schema changes between two versions. Quick 0.001 USDC, deep 0.019 USDC.',
   },
   workflow_runner: {
     slug: 'workflow-runner', price: { quick: 0.005, deep: 0.035 },

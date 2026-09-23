@@ -1,0 +1,42 @@
+name: competitive-watch
+
+# Daily, read-only competitive/discovery watch. No wallet, no secrets, no
+# payments, no auto-commits, no deploys. Surfaces health/index/dispatch changes.
+on:
+  schedule:
+    - cron: '17 6 * * *'   # daily ~06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Production health + discovery truth
+        run: |
+          echo "--- /health ---"
+          curl -sS -m 20 https://genesis-agent-tools.genesisagenttools.workers.dev/health || echo "PROD_DOWN"
+          echo
+          echo "--- /api/flagships/discovery (agent402) ---"
+          curl -sS -m 20 https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/discovery \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); a=d.get('agent402',{}); print(json.dumps({'listed':a.get('listed'),'health':a.get('health'),'dispatch_eligible':a.get('dispatch_eligible'),'dispatch_reason':a.get('dispatch_reason'),'settlements_observed':a.get('settlements_observed'),'threshold':a.get('settlement_threshold'),'independent_payers':a.get('independent_payers')}, indent=1))"
+
+      - name: Agent402 sentinel ranking + dispatch
+        run: |
+          for q in "detect breaking API change" "run HTTP JSON workflow" "audit MCP server" "verify crypto price" "extract claims from URLs"; do
+            echo "=== q=$q ==="
+            curl -sS -m 20 --get "https://agent402.tools/api/route" --data-urlencode "q=$q" \
+              | python3 -c "import sys,json; d=json.load(sys.stdin); [print(' GENESIS rank', i+1, 'score', r.get('score'), 'eligible', r.get('routerDispatchEligible'), r.get('routerDispatchReason')) for i,r in enumerate(d.get('results',[])) if 'genesis-agent-tools' in (r.get('seller') or '')]"
+          done
+
+      - name: MCP Registry presence
+        run: |
+          echo "--- MCP registry search ---"
+          curl -sS -m 20 "https://registry.modelcontextprotocol.io/v0.1/servers?search=genesis-agent-mcp" \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); s=d.get('servers',[]); print('found', len(s)); [print(' ', x['server'].get('name'), x['server'].get('version')) for x in s]"
+
+      - name: Summary
+        run: |
+          echo "competitive-watch complete. Key watch items: production /health, Agent402 dispatch eligibility + settlement gap, MCP registry presence, x402scan presence."

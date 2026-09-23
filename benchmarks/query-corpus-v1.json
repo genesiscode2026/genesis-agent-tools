@@ -1,0 +1,1006 @@
+{
+ "generated_at_utc": "2026-09-23T14:34:35Z",
+ "count": 200,
+ "corpus": [
+  {
+   "flagship": "release-guardian",
+   "query": "detect breaking API change",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "check API breaking changes before release",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "OpenAPI breaking change detection",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "will my API change break clients",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "API compatibility check",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "schema drift detection",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "GraphQL breaking change",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "breaking change in OpenAPI spec",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "API release safety check",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "compare two OpenAPI specs for breaking changes",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "is this API change backwards compatible",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "detect removed endpoint",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "detect removed schema field",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "API contract drift",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "breaking change gate",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "release readiness for API",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "check if my swagger change breaks consumers",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "openapi diff breaking",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "semver breaking change detector",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "API regression detection",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "breaking api compatibility",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "schema regression detection",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "removed method breaking change",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "check openapi backwards compatibility",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "api changelog risk",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "detect api contract break",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "will removing a field break my api",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "openapi schema compatibility",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "api drift detector",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "release guardian",
+   "split": "training"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "check api breaking changes",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "API release safety",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "verify openapi compatibility",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "find breaking changes in api spec",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "is my endpoint removal breaking",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "openapi change audit",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "breakign change detector",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "api compatability check",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "swagger breaking change",
+   "split": "holdout"
+  },
+  {
+   "flagship": "release-guardian",
+   "query": "breaking change analysis for release",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify crypto price",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price consensus",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "check token price",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "multi-source crypto price",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "on-chain token owner",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify contract owner",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "token freshness check",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "live crypto price verification",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "is this token price real",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "check BTC price consensus",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price oracle",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify token contract",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "who owns this token contract",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "token price cross-check",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify crypto asset price",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price across exchanges",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify token owner on chain",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "asset price verification",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "check if crypto price is current",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price truth check",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "token owner lookup",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify on-chain asset",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price aggregator",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "token contract ownership",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify crypto price consensus",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "check token contract owner",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "live token price",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price freshness",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify asset ownership",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "multi-exchange price check",
+   "split": "training"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify crypto price",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto price verification tool",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "check crypto price",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "who owns token contract",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify blockchain asset owner",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "is this crypto price accurate",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "token price consensus check",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "crypto asset owner lookup",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "verify token freshness",
+   "split": "holdout"
+  },
+  {
+   "flagship": "asset-intelligence",
+   "query": "on-chain price verification",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "analyze URL evidence",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract claims from URLs",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify source citations",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "contradiction detection in sources",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "evidence synthesis from URLs",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "fact check from URLs",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract cited claims",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "source credibility check",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "analyze web sources",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify claims in articles",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract evidence from links",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "check if sources contradict",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "URL claim extraction",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "source verification tool",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify article claims",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract citations from web page",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "cross-check web sources",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "evidence from urls",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify source accuracy",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "claim extraction from URL",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "analyze source contradictions",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "research evidence analysis",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify url claims",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract facts from links",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "check source reliability",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "url evidence synthesis",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify web claims",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "contradiction check between sources",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract claims from web",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify sources",
+   "split": "training"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract claims and contradictions from urls",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "web evidence analysis",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify article citations",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "source evidence extraction",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "url claim verification",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "check web source accuracy",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "extract claims from article",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "verify web source claims",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "evidence extraction from urls",
+   "split": "holdout"
+  },
+  {
+   "flagship": "research-evidence",
+   "query": "fact check web sources",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run HTTP JSON workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "bounded workflow execution",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "deterministic workflow trace",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "fetch transform validate workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "JSON workflow automation",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run api workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "durable workflow checkpoints",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run bounded workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "http workflow runner",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "execute json workflow steps",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "workflow with trace",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run fetch transform workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "validate workflow steps",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run http get workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "bounded http workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "json workflow execution",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "deterministic execution workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "workflow automation api",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run workflow with checkpoints",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "http json automation",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "execute bounded workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "workflow runner tool",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run steps workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "validate and compare workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "http workflow with trace",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run json pipeline",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "bounded agent workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "deterministic workflow api",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run http workflow steps",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run http json workflow",
+   "split": "training"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "execute http json workflow",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "bounded workflow tool",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "workflow execution with trace",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run json fetch workflow",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "deterministic http workflow",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "validate http workflow",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "workflow step runner",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "run transform validate workflow",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "http workflow automation tool",
+   "split": "holdout"
+  },
+  {
+   "flagship": "workflow-runner",
+   "query": "json workflow with checkpoints",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit MCP server",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP readiness check",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent security audit",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP tool contract validation",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify MCP server config",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent card validation",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP server risk",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "tool contract lint",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit agent readiness",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "check MCP server readiness",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent reliability check",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify MCP manifest",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit agent tool",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP server security",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent readiness audit",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify MCP tool contract",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent safety check",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit MCP config",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "check agent card",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP tool validation",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent assurance check",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify MCP server",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit agent instructions",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP readiness audit",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent risk assessment",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "tool contract validation",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "check agent reliability",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "MCP server audit",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent security scan",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "audit mcp server",
+   "split": "training"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent security audit tool",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "mcp readiness audit",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify agent card",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "check mcp tool contract",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent assurance audit",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "validate mcp manifest",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "mcp server security audit",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "agent tool audit",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "verify agent readiness",
+   "split": "holdout"
+  },
+  {
+   "flagship": "agent-assurance",
+   "query": "mcp contract validation",
+   "split": "holdout"
+  }
+ ]
+}

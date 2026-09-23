@@ -1,0 +1,7 @@
+{
+  "generated_at_utc": "2026-09-23",
+  "status": "DEFERRED_PENDING_CRAWLER_REFRESH",
+  "note": "The semantic metadata hardening (searchSummary/promise/tags) and the Release Guardian Quick acquisition-wedge price ($0.005 -> $0.001) were deployed to production (worker version 4f1e55ae) on 2026-09-23. Agent402's index crawls origins on its own schedule; until it re-crawls GENESIS's updated OpenAPI/402 manifest, the router still serves the pre-change metadata, so a re-run of the frozen 200-query corpus would reproduce agent402-before-200.json. The after-benchmark will be run once the crawler refresh lands (tracked by .github/workflows/competitive-watch.yml).",
+  "identical_to": "agent402-before-200.json (until re-crawl)",
+  "before_metrics_total": { "appearance": 31.0, "top3": 25.5, "top1": 16.5, "dispatch_eligible": 0.0 }
+}

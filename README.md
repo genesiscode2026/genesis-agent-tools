@@ -15,7 +15,7 @@ before release.**
 - **Endpoint:** `POST /api/flagships/release-guardian`
 - **Input:** `{ "tier": "quick", "input": { "previous": …, "current": … } }`
 - **Output:** `SAFE` / `RISKY` / `BREAKING` / `UNKNOWN` / `UNSUPPORTED`
-- **Price:** Quick **$0.005** · Deep $0.019 (USDC)
+- **Price:** Quick **$0.001** · Deep $0.019 (USDC)
 - **Network:** Base (`eip155:8453`) · USDC · non-custodial (EIP-3009)
 
 ```bash
@@ -65,7 +65,7 @@ Config: [`mcp/README.md`](mcp/README.md).
 | **Research & Evidence** | Extract cited claims and contradictions from supplied URLs. | `POST /api/flagships/research-evidence` | 0.005 | 0.040 |
 | **Agent Assurance** | Audit an agent or MCP server for readiness, observed risk, and evidence. | `POST /api/flagships/agent-assurance` | 0.005 | 0.029 |
 
-All prices in **USDC**. All Quick ≤ $0.005 (Agent402 `execute`); all Deep ≤ $0.040
+All prices in **USDC**. Release Guardian Quick is the $0.001 acquisition wedge; all other Quick ≤ $0.005 (Agent402 `execute`); all Deep ≤ $0.040
 (`execute-plus`). Bounded workflow example: [`examples/workflow-runner/`](examples/workflow-runner).
 
 ## How do I pay? (x402 v2)

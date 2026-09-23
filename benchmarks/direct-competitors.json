@@ -1,0 +1,40 @@
+{
+  "generated_at_utc": "2026-09-23",
+  "source": "agent402-before-200.json (200-query live benchmark)",
+  "direct_equivalents": [
+    {
+      "buyer_intent": "detect breaking API/OpenAPI/schema change",
+      "genesis": "release-guardian (quick)",
+      "genesis_price_usdc": 0.001,
+      "competitor": "https://api.delx.ai",
+      "competitor_tool": "util_openapi_breaking_change",
+      "competitor_price_usdc": 0.002,
+      "dispatch_eligible": true,
+      "output_difference": "materially equivalent (OpenAPI breaking-change detection; GENESIS also covers GraphQL/schema)",
+      "observed_usage": { "calls30d": 531, "payers30d": 12 },
+      "classification": "DIRECT_EQUIVALENT"
+    },
+    {
+      "buyer_intent": "OpenAPI breaking change report",
+      "genesis": "release-guardian (deep) / openapi-breaking-change service",
+      "genesis_price_usdc": 0.019,
+      "competitor": "https://ai-data-marketplace-1042299154756.us-central1.run.app",
+      "competitor_tool": "openapi_change_report",
+      "competitor_price_usdc": 0.01,
+      "dispatch_eligible": true,
+      "output_difference": "comparable (OpenAPI breaking change report)",
+      "classification": "DIRECT_EQUIVALENT"
+    }
+  ],
+  "partial_substitutes": [
+    { "buyer_intent": "MCP server readiness audit", "genesis": "agent-assurance", "genesis_price_usdc": 0.005, "competitor": "https://x402.agentutility.ai", "competitor_price_usdc": 0.06, "dispatch_eligible": true, "classification": "PARTIAL_SUBSTITUTE" },
+    { "buyer_intent": "tool contract validation", "genesis": "agent-assurance", "genesis_price_usdc": 0.005, "competitor": "https://api.delx.ai (tool contract lint)", "competitor_price_usdc": 0.001, "dispatch_eligible": true, "classification": "PARTIAL_SUBSTITUTE" },
+    { "buyer_intent": "crypto price consensus", "genesis": "asset-intelligence", "genesis_price_usdc": 0.005, "competitor": "https://2s-rjsw718bb-alleyford.vercel.app", "competitor_price_usdc": 0.0018, "dispatch_eligible": true, "classification": "PARTIAL_SUBSTITUTE" },
+    { "buyer_intent": "agent security audit", "genesis": "agent-assurance", "genesis_price_usdc": 0.005, "competitor": "https://hubvibe-io.com", "competitor_price_usdc": 0.05, "dispatch_eligible": true, "classification": "PARTIAL_SUBSTITUTE" },
+    { "buyer_intent": "bounded HTTP/JSON workflow", "genesis": "workflow-runner", "genesis_price_usdc": 0.005, "competitor": "https://api.delx.ai", "competitor_price_usdc": 0.002, "dispatch_eligible": true, "classification": "PARTIAL_SUBSTITUTE" }
+  ],
+  "false_matches": [
+    "https://api.andromalius.io (x402 discovery audit) — different buyer job",
+    "https://agents.samedaydesk.com (seller integrity audit) — different buyer job"
+  ]
+}

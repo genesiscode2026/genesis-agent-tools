@@ -1,0 +1,44 @@
+{
+  "generated_at_utc": "2026-09-23",
+  "upstream_repo": "https://github.com/MikeyPetrillo/Agent402",
+  "upstream_commit_sha": "95fa1dd1a901e8aac65e422dc991f8659972c83c",
+  "source_files": [
+    "src/dispatch-eligibility.js",
+    "src/settlement-proof.js",
+    "scripts/test-dispatch-eligibility.js"
+  ],
+  "gate": {
+    "constant": "SOR_MIN_SETTLED_TX",
+    "min_settled_tx": 50,
+    "min_distinct_payers": 3,
+    "payto_binding": "settlement evidence is joined to an origin ONLY by its advertised Base payTo (baseNetworkPayTo / payToByNetwork); shared-wallet evidence counts for an origin only when the origin's own 402 names that wallet (evidence_payto_mismatch / evidence_payto_unverified otherwise).",
+    "level": "route-level dispatch on Base; seller-level settled/payer basis feeds every route of the origin",
+    "reasons": {
+      "settlement_required": "Base pays only sellers above the settlement floor from enough distinct payers",
+      "crawl_failed": "last crawl failed",
+      "network_unknown": "crawl learned no payment network",
+      "no_supported_route": "no advertised chain this host holds a spending wallet for",
+      "settlement_checked_at_pay_time": "Solana/etc. proof read at pay time",
+      "price_unknown": "no known price",
+      "url_template": "unsubstituted path template",
+      "usdc_domain_mismatch": "Base USDC EIP-712 domain name is not the token's own",
+      "gateway_rail_unsupported": "Circle Gateway batched rail not speakable by stock signer",
+      "delivery_failing": "last real paid call did not deliver"
+    },
+    "note": "minSettled=50 and minPayers=3 are the DEFAULT parameters of meetsRouterGate({settled, payers, minSettled, minPayers}) and evidencePayToVerdict({..., minSettled=50, minPayers=3}); confirmed by test fixture asserting basis.minSettled === 50 and that 500 settlements from 1 payer still fails ('one wallet can manufacture a count')."
+  },
+  "genesis_current": {
+    "on_chain_settlements_to_payto": 13,
+    "on_chain_distinct_payer_addresses": 2,
+    "independent_external_settlements": 0,
+    "independent_external_payers": 0,
+    "note": "All 13 settlements are founder-controlled: 12 self-tests (0x7f2db2…) + 1 founder E2E self-payment (0xc6f86e… = the treasury/payTo itself, reclassified FOUNDER_SELF_TEST). None are independent buyers."
+  },
+  "gap": {
+    "settlements_needed": 37,
+    "distinct_payers_needed": 1,
+    "independent_settlements_needed": 50,
+    "independent_distinct_payers_needed": 3,
+    "note": "Mechanically the router would count 13 settlements / 2 payers (below the 50/3 floor). For legitimate market validation the true independent counts are 0/0, so the real gap is 50 independent settlements from >=3 distinct independent payers. Must not be fabricated."
+  }
+}
