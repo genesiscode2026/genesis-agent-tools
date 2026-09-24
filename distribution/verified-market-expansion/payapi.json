@@ -1,20 +1,31 @@
 {
   "platform": "payapi market",
-  "verified_at_utc": "2026-09-23",
-  "result": "PAYAPI_SUBMITTED",
-  "status": "SUBMITTED / PENDING_REVIEW",
+  "verified_at_utc": "2026-09-24",
+  "result": "PAYAPI_LIVE",
+  "status": "LIVE",
   "listing": {
+    "id": "3947d7cd-909a-40ea-bf24-c2025eb81e0b",
+    "slug": "genesis-release-guardian",
     "name": "GENESIS Release Guardian",
-    "category": "Tools",
-    "base_url": "https://genesis-agent-tools.genesisagenttools.workers.dev",
-    "paid_route": "https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/release-guardian",
-    "method": "POST",
-    "price_usdc": "0.001",
-    "wallet": "0xC6F86e170411182114FcCdb28793dC76B5e8D144",
-    "email": "chitara.trading@proton.me"
+    "provider_name": "GENESIS Agent Tools",
+    "base_url": "https://genesis-agent-tools.genesisagenttools.workers.dev/api/flagships/release-guardian",
+    "price_min": 0.001,
+    "price_max": 0.001,
+    "network": "base",
+    "payment_verified": true,
+    "marketplace_url": "https://payapi.market/api/genesis-release-guardian"
   },
-  "http402_verified": true,
-  "domain_name": "USD Coin",
-  "note": "Submitted successfully. Human review within 24h; PayAPI performs a real external settlement-verification payment from its own wallet to earn the settlement-verified badge. Email confirmation sent to the project contact (mailbox not autonomously accessible).",
+  "verification_payment": {
+    "tx_hash": "0x545ff79c3b5e75ced27710f057635feb98de11a3ee919b363cfbbe518fc7fadb",
+    "payer": "0x7e6b6556322c4e26c567a867964ac793f5ee2b1c",
+    "amount_atomic": 1000,
+    "amount_usdc": 0.001,
+    "product": "GEN-FLAG-004:quick",
+    "network": "eip155:8453",
+    "onchain_status": "0x1",
+    "classification": "EXTERNAL_PLATFORM_VERIFICATION_SETTLEMENT",
+    "note": "PayAPI's own-wallet settlement-verification canary (its documented one-cheap-canary flow). NOT an independent customer; does not set MARKET_VALIDATED."
+  },
   "human_action_required": "NONE"
 }
+
