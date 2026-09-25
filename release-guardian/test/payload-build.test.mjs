@@ -15,7 +15,7 @@ test('EIP-3009 typed data merges EIP712Domain (non-empty domain)', () => {
   const message = {
     from: '0x1111111111111111111111111111111111111111',
     to: getAddress(PAY_TO),
-    value: 5000n,
+    value: 1000n,
     validAfter: 0n,
     validBefore: 9999999999n,
     nonce: '0x' + 'ab'.repeat(32),
@@ -27,12 +27,12 @@ test('EIP-3009 typed data merges EIP712Domain (non-empty domain)', () => {
   assert.equal(serialized.domain.chainId, 8453);
   assert.equal(serialized.domain.verifyingContract.toLowerCase(), ASSET.toLowerCase());
   assert.ok(serialized.types.EIP712Domain, 'EIP712Domain type present');
-  assert.equal(serialized.message.value, '5000');
+  assert.equal(serialized.message.value, '1000');
   assert.equal(serialized.message.to.toLowerCase(), PAY_TO.toLowerCase());
 });
 
-test('EIP-3009 amount is 5000 atomic units for 0.005 USDC', () => {
-  assert.equal(BigInt(5000), 5000n);
-  // 0.005 * 1e6 = 5000
-  assert.equal(Math.round(0.005 * 1e6), 5000);
+test('EIP-3009 amount is 1000 atomic units for 0.001 USDC', () => {
+  assert.equal(BigInt(1000), 1000n);
+  // 0.001 * 1e6 = 1000
+  assert.equal(Math.round(0.001 * 1e6), 1000);
 });

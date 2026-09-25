@@ -11,7 +11,7 @@ tools. **Release Guardian** and **Workflow Runner** are the primary tools.
 
 | Tool | What it does | Quick | Deep |
 |---|---|---|---|
-| `genesis_release_guardian` | Detect breaking API/OpenAPI/GraphQL/schema changes | 0.005 | 0.019 |
+| `genesis_release_guardian` | Cross-contract release preflight for MCP/OpenAPI/GraphQL/schema changes | 0.001 | 0.019 |
 | `genesis_workflow_runner` | Bounded HTTP/JSON workflow (fetch/transform/validate/compare) | 0.005 | 0.035 |
 | `genesis_asset_intelligence` | Crypto price consensus + on-chain owner | 0.005 | 0.025 |
 | `genesis_research_evidence` | URL claims + contradictions | 0.005 | 0.040 |

@@ -7,10 +7,14 @@ the premium result.
 
 **Live origin:** `https://genesis-agent-tools.genesisagenttools.workers.dev`
 
+**Direct buyer page:** [`/release-guardian`](https://genesis-agent-tools.genesisagenttools.workers.dev/release-guardian) — free preview, no account, 0.001 USDC.
+
+**Topics:** `openapi` · `breaking-changes` · `api-testing` · `github-actions` · `release` · `mcp` · `x402`
+
 ## Release Guardian (primary)
 
-**Pay-per-call x402 API that checks API/schema changes for breaking compatibility
-before release.**
+**Pay-per-call x402 cross-contract preflight for MCP tools, common OpenAPI
+breakages, GraphQL, SDK exports and JSON Schema changes before release.**
 
 - **Endpoint:** `POST /api/flagships/release-guardian`
 - **Input:** `{ "tier": "quick", "input": { "previous": …, "current": … } }`
@@ -85,8 +89,8 @@ Live / submitted distribution surfaces (machine-native, no account, no API key):
 | x402scan | LISTED | `https://www.x402scan.com/server/c6741010-aff0-42ae-85dc-a28523d26cb2` |
 | MCP Registry | LIVE v1.0.0 | `io.github.genesiscode2026/genesis-agent-mcp` |
 | true402 | REGISTERED (free discovery) | `https://true402.dev/catalog` |
-| PayAPI Market | SUBMITTED (review + verification pending) | `https://payapi.market/marketplace` |
-| FiatDock | SELLER LIVE · 5 services published | `https://fiatdock.com/browse` |
+| PayAPI Market | LIVE · x402 verified (Release Guardian) | `https://payapi.market/api/genesis-release-guardian` |
+| FiatDock | 5 callable listings · pending/unverified · 0 ratings | `https://fiatdock.com/browse` |
 | PayanAgent | registration endpoint returned 500 (retried) — pending | `https://payanagent.com` |
 
 ## How do I pay? (x402 v2)
@@ -133,13 +137,14 @@ explicitly supply. Nothing else in your repository is read or uploaded; there is
 server-side repo cloning, no IP/geolocation persistence, and no analytics trackers.
 Payment wallet addresses are necessarily public/on-chain.
 
-## Contact
+## Support
 
-`chitara.trading@proton.me` — technical support, ownership verification, and security.
+Use [GitHub Issues](https://github.com/genesiscode2026/genesis-agent-tools/issues)
+for product support and private [GitHub Security Advisories](https://github.com/genesiscode2026/genesis-agent-tools/security/advisories/new)
+for vulnerabilities. No personal contact details are required.
 
 ## License
 
 Discovery/documentation only. Proprietary source is sold separately under a
 non-exclusive GENESIS license.
-
 
