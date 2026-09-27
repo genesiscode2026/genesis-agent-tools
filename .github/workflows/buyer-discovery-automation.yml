@@ -1,0 +1,81 @@
+name: buyer-discovery-automation
+
+# Zero-cost daily buyer discovery automation for GENESIS Release Guardian & Agent Tools.
+# Runs on cron daily; scans GitHub for developers asking for OpenAPI breaking change detection,
+# contract testing, and MCP schema validation. Outputs actionable leads with attribution URLs
+# directly to the GitHub Action Step Summary.
+# Zero wallet required, zero tokens required (uses standard GITHUB_TOKEN), zero infrastructure cost.
+
+on:
+  schedule:
+    - cron: '30 7 * * *'   # daily at 07:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scan GitHub for High-Intent API & Contract Buyer Leads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat << 'EOF' > scan.js
+          import { execSync } from 'node:child_process';
+          import { appendFileSync } from 'node:fs';
+
+          const QUERIES = [
+            'openapi breaking change',
+            'contract testing openapi',
+            'schema compatibility CI',
+            'mcp schema drift'
+          ];
+
+          const seen = new Set();
+          const leads = [];
+
+          for (const query of QUERIES) {
+            try {
+              const raw = execSync(
+                `gh search issues "${query}" --state=open --sort=updated --limit=15 --json url,title,repository,updatedAt,commentsCount`,
+                { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }
+              );
+              const items = JSON.parse(raw);
+              for (const item of items) {
+                if (!seen.has(item.url)) {
+                  seen.add(item.url);
+                  leads.push({ ...item, query });
+                }
+              }
+            } catch (err) {
+              console.error(`Search failed for query "${query}":`, err.message);
+            }
+          }
+
+          console.log(`Discovered ${leads.length} unique buyer candidate issues across ${QUERIES.length} search tracks.`);
+
+          const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+          if (summaryPath) {
+            let md = '## 🎯 GENESIS Daily Buyer Discovery Leads\\n\\n';
+            md += `Automated daily scan generated on **${new Date().toISOString().split('T')[0]}**.\\n\\n`;
+            md += '| Repository | Issue | Query Track | Comments | Outreach Attribution Link |\\n';
+            md += '|---|---|---|---|---|\\n';
+
+            for (const lead of leads.slice(0, 25)) {
+              const repo = lead.repository?.nameWithOwner || 'unknown';
+              const title = lead.title.replace(/\|/g, '\\|');
+              const issueId = lead.url.split('/').slice(-1)[0];
+              const campaignId = `${repo.replace(/[^a-zA-Z0-9]/g, '_')}_${issueId}`.toLowerCase();
+              const attributionUrl = `https://genesis-agent-tools.genesisagenttools.workers.dev/premium?sku=GEN-SVC-0210&src=github_discovery&campaign=${campaignId}#release-check`;
+              
+              md += `| [\`${repo}\`](https://github.com/${repo}) | [${title}](${lead.url}) | \`${lead.query}\` | ${lead.commentsCount} | [1-Click Link](${attributionUrl}) |\\n`;
+            }
+
+            md += '\\n\\n*All leads tagged with zero-cost attribution campaign query parameters.*\\n';
+            appendFileSync(summaryPath, md.replace(/\\n/g, '\n'), 'utf8');
+          }
+          EOF
+
+          node scan.js
