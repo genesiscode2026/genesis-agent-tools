@@ -24,7 +24,7 @@ jobs:
         run: |
           cat << 'EOF' > scan.js
           import { execSync } from 'node:child_process';
-          import { appendFileSync } from 'node:fs';
+          import { appendFileSync, writeFileSync } from 'node:fs';
 
           const QUERIES = [
             'openapi breaking change',
@@ -33,20 +33,37 @@ jobs:
             'mcp schema drift'
           ];
 
-          const seen = new Set();
+          const seenUrl = new Set();
+          const seenRepo = new Set();
           const leads = [];
+          let rawScanCount = 0;
 
           for (const query of QUERIES) {
             try {
               const raw = execSync(
-                `gh search issues "${query}" --state=open --sort=updated --limit=15 --json url,title,repository,updatedAt,commentsCount`,
+                `gh search issues "${query}" --state=open --sort=updated --limit=20 --json url,title,repository,updatedAt,commentsCount`,
                 { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }
               );
               const items = JSON.parse(raw);
+              rawScanCount += items.length;
               for (const item of items) {
-                if (!seen.has(item.url)) {
-                  seen.add(item.url);
-                  leads.push({ ...item, query });
+                if (!seenUrl.has(item.url)) {
+                  seenUrl.add(item.url);
+                  const repo = item.repository?.nameWithOwner || 'unknown';
+                  const isNewRepo = !seenRepo.has(repo);
+                  if (isNewRepo) seenRepo.add(repo);
+                  
+                  // Intent classification
+                  const titleLower = (item.title || '').toLowerCase();
+                  const isHighIntent = /ci|action|workflow|breaking|gate|diff|compatib/i.test(titleLower);
+                  
+                  leads.push({
+                    ...item,
+                    query,
+                    repo,
+                    isNewRepo,
+                    intent: isHighIntent ? 'HIGH_INTENT' : 'MEDIUM_INTENT'
+                  });
                 }
               }
             } catch (err) {
@@ -54,26 +71,43 @@ jobs:
             }
           }
 
-          console.log(`Discovered ${leads.length} unique buyer candidate issues across ${QUERIES.length} search tracks.`);
+          const uniqueRepos = Array.from(seenRepo);
+          const highIntentLeads = leads.filter(l => l.intent === 'HIGH_INTENT');
+
+          console.log(`=== GENESIS BUYER DISCOVERY AUDIT ===`);
+          console.log(`RAW SCANNED HITS:           ${rawScanCount}`);
+          console.log(`UNIQUE ISSUES DEDUPLICATED: ${leads.length}`);
+          console.log(`UNIQUE ORGANIZATIONS/REPOS: ${uniqueRepos.length}`);
+          console.log(`HIGH-INTENT CI LEADS:       ${highIntentLeads.length}`);
 
           const summaryPath = process.env.GITHUB_STEP_SUMMARY;
           if (summaryPath) {
-            let md = '## 🎯 GENESIS Daily Buyer Discovery Leads\\n\\n';
-            md += `Automated daily scan generated on **${new Date().toISOString().split('T')[0]}**.\\n\\n`;
-            md += '| Repository | Issue | Query Track | Comments | Outreach Attribution Link |\\n';
+            let md = '## 🎯 GENESIS Buyer Discovery & Qualification Pipeline\\n\\n';
+            md += `Automated pipeline audit executed on **${new Date().toISOString().split('T')[0]}**.\\n\\n`;
+            md += '### Funnel Truth\\n\\n';
+            md += `| Metric | Count | Semantics |\\n`;
+            md += `|---|---|---|\\n`;
+            md += `| **Raw Search Hits** | ${rawScanCount} | Total un-deduplicated candidate results |\\n`;
+            md += `| **Unique Qualified Issues** | ${leads.length} | Deduplicated by issue URL |\\n`;
+            md += `| **Unique Organizations/Repos** | ${uniqueRepos.length} | Distinct projects in need of contract safety |\\n`;
+            md += `| **High-Intent CI Candidates** | ${highIntentLeads.length} | Explicitly asking for CI gates, actions, or breaking change checks |\\n`;
+            md += `| **Actually Contacted (PR/Issue)** | 2 | MSKazemi/idkmesh#892 & VilnaCRM-Org/user-service#499 |\\n`;
+            md += `| **External Paid Customers** | 0 | Pending first external settlement |\\n\\n`;
+
+            md += '### High-Intent Outreach Candidates (Deduplicated)\\n\\n';
+            md += '| Repository | Issue | Intent | Comments | Outreach Attribution Link |\\n';
             md += '|---|---|---|---|---|\\n';
 
-            for (const lead of leads.slice(0, 25)) {
-              const repo = lead.repository?.nameWithOwner || 'unknown';
+            for (const lead of highIntentLeads.slice(0, 25)) {
               const title = lead.title.replace(/\|/g, '\\|');
               const issueId = lead.url.split('/').slice(-1)[0];
-              const campaignId = `${repo.replace(/[^a-zA-Z0-9]/g, '_')}_${issueId}`.toLowerCase();
+              const campaignId = `${lead.repo.replace(/[^a-zA-Z0-9]/g, '_')}_${issueId}`.toLowerCase();
               const attributionUrl = `https://genesis-agent-tools.genesisagenttools.workers.dev/premium?sku=GEN-SVC-0210&src=github_discovery&campaign=${campaignId}#release-check`;
               
-              md += `| [\`${repo}\`](https://github.com/${repo}) | [${title}](${lead.url}) | \`${lead.query}\` | ${lead.commentsCount} | [1-Click Link](${attributionUrl}) |\\n`;
+              md += `| [\`${lead.repo}\`](https://github.com/${lead.repo}) | [${title}](${lead.url}) | \`${lead.intent}\` | ${lead.commentsCount} | [1-Click Checkout](${attributionUrl}) |\\n`;
             }
 
-            md += '\\n\\n*All leads tagged with zero-cost attribution campaign query parameters.*\\n';
+            md += '\\n\\n*Every campaign link includes persistent parameter attribution for conversion tracking.*\\n';
             appendFileSync(summaryPath, md.replace(/\\n/g, '\n'), 'utf8');
           }
           EOF
