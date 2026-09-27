@@ -1,7 +1,7 @@
 {
   "name": "genesis-release-guardian",
   "version": "1.0.0",
-  "description": "Detect breaking API/OpenAPI/GraphQL/schema/MCP changes in CI and with a single CLI command. Free scope preview; full SAFE/REVIEW/BLOCK verdict for 0.001 USDC on Base (gasless EIP-3009). No account, no API key.",
+  "description": "Detect breaking API/OpenAPI/GraphQL/schema/MCP changes in CI and with a single CLI command. Free scope preview; full SAFE/REVIEW/BLOCK verdict for 0.005 USDC on Base (gasless EIP-3009). No account, no API key.",
   "type": "module",
   "license": "MIT",
   "bin": {
