@@ -41,7 +41,7 @@ const hasHighRisk = limitation && /breaking|critical|removed|BLOCK/i.test(limita
 const riskEmoji  = hasHighRisk ? '🔴' : (comparable ? '🟡' : '⚪');
 const riskLabel  = hasHighRisk ? 'High-risk signals detected in scope' : (comparable ? 'Changes detected — verdict requires payment' : 'Scope parsed, no changes detected');
 
-const ctaPrice = '0.001 USDC';
+const ctaPrice = '0.005 USDC';
 const ctaLabel = `🔓 Unlock Full SAFE/REVIEW/BLOCK Verdict for ${ctaPrice} on Base`;
 const ctaUrl   = `${PREMIUM_PAGE}?sku=GEN-SVC-0210`;
 

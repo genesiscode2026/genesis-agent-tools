@@ -49,11 +49,11 @@ test('spending ceiling is enforced against the live challenge amount', () => {
 });
 
 test('published prices and the default ceiling match the live acquisition offer', () => {
-  assert.match(src, /quick:\s*0\.001/);
+  assert.match(src, /quick:\s*0\.005/);
   assert.match(src, /deep:\s*0\.019/);
-  assert.match(action, /default:\s*'0\.001'/);
+  assert.match(action, /default:\s*'0\.005'/);
   assert.match(src, /amountUsd\s*>\s*publishedPrice/);
-  assert.match(cli, /quick:\s*0\.001/);
+  assert.match(cli, /quick:\s*0\.005/);
   assert.match(cli, /deep:\s*0\.019/);
 });
 

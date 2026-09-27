@@ -4,7 +4,7 @@
 // Free mode (no payment):
 //   npx genesis-release-guardian --prev openapi-v1.json --curr openapi-v2.json
 //
-// Paid mode (full SAFE/REVIEW/BLOCK verdict — 0.001 USDC on Base):
+// Paid mode (full SAFE/REVIEW/BLOCK verdict — 0.005 USDC on Base):
 //   X402_PRIVATE_KEY=0x... npx genesis-release-guardian \
 //     --prev openapi-v1.json --curr openapi-v2.json --pay
 //
@@ -12,7 +12,7 @@
 //   --prev, --previous   Path to previous/base spec JSON
 //   --curr, --current    Path to current spec JSON
 //   --pay                Execute the paid verdict (requires X402_PRIVATE_KEY)
-//   --mode               quick (default, 0.001 USDC) | deep (0.019 USDC)
+//   --mode               quick (default, 0.005 USDC) | deep (0.019 USDC)
 //   --output             json | text (default: text)
 //   --fail-on            breaking (default) | risky | never
 //   --max-spend-usd      Hard ceiling in USDC (default: mode price)
@@ -26,7 +26,7 @@ const PREVIEW_ENDPOINT = ORIGIN + '/api/flagships/release-guardian/preview';
 const PAID_ENDPOINT = ORIGIN + '/api/flagships/release-guardian';
 const PREMIUM_PAGE = ORIGIN + '/premium#release-check';
 const USDC_DECIMALS = 1e6;
-const MODE_PRICE = { quick: 0.001, deep: 0.019 };
+const MODE_PRICE = { quick: 0.005, deep: 0.019 };
 
 // ─── Argument parsing ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -47,7 +47,7 @@ GENESIS Release Guardian CLI — API Breaking Change Detector
 Free preview (no payment, no wallet):
   npx genesis-release-guardian --prev openapi-v1.json --curr openapi-v2.json
 
-Full paid verdict (0.001 USDC on Base, gasless EIP-3009):
+Full paid verdict (0.005 USDC on Base, gasless EIP-3009):
   X402_PRIVATE_KEY=0x<key> npx genesis-release-guardian \\
     --prev openapi-v1.json --curr openapi-v2.json --pay
 
@@ -55,7 +55,7 @@ Options:
   --prev, --previous   Previous/base spec (JSON file path or inline JSON string)
   --curr, --current    Current spec (JSON file path or inline JSON string)
   --pay                Execute paid call (requires X402_PRIVATE_KEY env var)
-  --mode               quick (0.001 USDC, default) | deep (0.019 USDC)
+  --mode               quick (0.005 USDC, default) | deep (0.019 USDC)
   --output             text (default) | json
   --fail-on            breaking (default) | risky | never
   --max-spend-usd      Hard spending ceiling (default: mode price)
