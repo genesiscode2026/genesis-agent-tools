@@ -1,12 +1,12 @@
-# GENESIS Asset Intelligence — Pre-Trade Safety Guard for Base DeFi Bots
+# GENESIS Asset Intelligence — Pre-Trade Contract & Price Consensus Guard for Base DeFi Bots
 
-Stop your Base sniper or trading bot from buying honeypots, malicious proxy upgrades, or swapping at manipulated oracle prices on Aerodrome or Uniswap v3.
+Protect your Base sniper or trading bot from unverified contract addresses, centralized owner privileges, or swapping at manipulated oracle prices on Aerodrome or Uniswap v3.
 
-## Why Base Trading Bots Need This
+## Verified Capabilities for Base Trading Bots
 
-1. **Honeypot & Rugpull Defense**: Attackers mint tokens with malicious ownership transfer or transfer-tax logic. GENESIS checks on-chain bytecode and contract ownership directly on Base.
-2. **Multi-Source Price Consensus**: Detects price outliers and liquidity manipulation before executing high-slippage swaps.
-3. **Zero Subscriptions or API Keys**: Pay only per check (0.005 USDC for quick consensus, 0.025 USDC for deep contract audit) via gasless EIP-3009 micropayments on Base.
+1. **On-Chain Contract & Ownership Verification**: Validates on-chain bytecode deployment and inspects contract owner privileges directly on Base RPC.
+2. **Multi-Source Price Consensus & Freshness**: Detects cross-exchange price dispersion (>2%) across CoinGecko, Binance, and Coinbase, flagging stale or conflicting quotes before executing swaps.
+3. **Zero Subscriptions or API Keys**: Pay only per check (0.005 USDC for quick consensus, 0.025 USDC for deep contract verification) via gasless EIP-3009 micropayments on Base.
 
 ---
 
