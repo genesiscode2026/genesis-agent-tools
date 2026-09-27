@@ -1,0 +1,40 @@
+# Smithery configuration for GENESIS Agent Tools MCP Server.
+# Place this file in the repository root to enable Smithery.ai indexing.
+# Docs: https://smithery.ai/docs
+#
+# This server provides 5 pay-per-call AI audit tools via the x402 protocol
+# on Base USDC. No account, no API key — payment is EIP-3009 gasless USDC.
+
+startCommand:
+  type: stdio
+
+configSchema:
+  type: object
+  required:
+    - X402_PRIVATE_KEY
+  properties:
+    X402_PRIVATE_KEY:
+      type: string
+      title: "x402 Buyer Private Key (Base mainnet)"
+      description: "EIP-3009 signing key for a Base mainnet wallet funded with USDC. Each tool call costs 0.001–0.040 USDC. Never share or commit this key. Pass it as a secret."
+    GENESIS_MAX_SPEND_USD:
+      type: string
+      title: "Per-call Spending Ceiling (USDC)"
+      description: "Hard ceiling in USDC per single tool call (default: 0.02). The server aborts before signing if the live 402 quote exceeds this."
+      default: "0.02"
+    GENESIS_SESSION_BUDGET_USD:
+      type: string
+      title: "Session Budget (USDC)"
+      description: "Total USDC budget for this session across all tool calls (default: 1.00). Protects against runaway agent loops."
+      default: "1.00"
+
+commandFunction: |-
+  (config) => ({
+    command: "node",
+    args: ["mcp/src/server.mjs"],
+    env: {
+      X402_PRIVATE_KEY: config.X402_PRIVATE_KEY,
+      GENESIS_MAX_SPEND_USD: config.GENESIS_MAX_SPEND_USD || "0.02",
+      GENESIS_SESSION_BUDGET_USD: config.GENESIS_SESSION_BUDGET_USD || "1.00"
+    }
+  })

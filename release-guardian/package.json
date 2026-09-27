@@ -1,11 +1,46 @@
 {
-  "name": "genesis-release-guardian-action",
+  "name": "genesis-release-guardian",
   "version": "1.0.0",
-  "private": true,
+  "description": "Detect breaking API/OpenAPI/GraphQL/schema/MCP changes in CI and with a single CLI command. Free scope preview; full SAFE/REVIEW/BLOCK verdict for 0.001 USDC on Base (gasless EIP-3009). No account, no API key.",
   "type": "module",
-  "description": "GENESIS Release Guardian GitHub Action — pay-per-call x402 API compatibility gate.",
+  "license": "MIT",
+  "bin": {
+    "genesis-release-guardian": "src/cli.mjs"
+  },
+  "files": [
+    "src/",
+    "action.yml",
+    "dist/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "api-breaking-change",
+    "openapi",
+    "release-guardian",
+    "x402",
+    "mcp",
+    "agent-tools",
+    "ci-cd",
+    "schema-drift",
+    "graphql",
+    "genesis"
+  ],
+  "author": "GENESIS Agent Tools <chitara.trading@proton.me>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genesiscode2026/genesis-agent-tools.git",
+    "directory": "release-guardian"
+  },
+  "homepage": "https://genesis-agent-tools.genesisagenttools.workers.dev/premium#release-check",
+  "bugs": {
+    "url": "https://github.com/genesiscode2026/genesis-agent-tools/issues"
+  },
   "scripts": {
-    "build": "ncc build src/index.js -o dist --license licenses.txt"
+    "build": "ncc build src/index.js -o dist --license licenses.txt",
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@x402/evm": "2.26.0",

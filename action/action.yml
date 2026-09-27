@@ -1,0 +1,28 @@
+name: 'GENESIS Release Guardian — Free API Scope Preview'
+description: 'Free scope preview for API/OpenAPI breaking change detection. Shows risk signals + links to the full 0.001 USDC SAFE/REVIEW/BLOCK verdict. No wallet or payment required for this step.'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+inputs:
+  previous-spec:
+    description: 'Path to the previous/base spec file (JSON path or inline JSON string)'
+    required: true
+  current-spec:
+    description: 'Path to the current spec file (JSON path or inline JSON string)'
+    required: true
+outputs:
+  input_valid:
+    description: 'Whether the spec inputs were parsed as valid JSON'
+  spec_type:
+    description: 'Detected spec type (openapi, graphql, mcp, schema, ...)'
+  comparable:
+    description: 'Whether meaningful differences were found between the two specs'
+  analyzed_count:
+    description: 'Number of artifacts analyzed in the scope'
+  has_high_risk:
+    description: 'Whether the free preview detected high-risk signals'
+  payment_url:
+    description: 'Direct URL to pay and unlock the full SAFE/REVIEW/BLOCK verdict'
+runs:
+  using: 'node20'
+  main: 'check.mjs'
