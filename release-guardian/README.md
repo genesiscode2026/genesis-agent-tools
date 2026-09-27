@@ -41,7 +41,7 @@ jobs:
           current-spec: spec/openapi.json
           mode: quick
           fail-on: breaking
-          max-spend-usd: '0.001'
+          max-spend-usd: '0.005'
           private-key: ${{ secrets.X402_PRIVATE_KEY }}
       - run: echo "verdict=${{ steps.guard.outputs.verdict }}"
 ```
@@ -52,8 +52,8 @@ jobs:
 |---|---|---|---|
 | `previous-spec` | yes | — | Baseline spec: a filesystem path to JSON, or an inline JSON string |
 | `current-spec` | yes | — | Proposed spec: a filesystem path to JSON, or an inline JSON string |
-| `mode` | no | `quick` | `quick` (0.001 USDC) or `deep` (0.019 USDC, explicit opt-in) |
-| `max-spend-usd` | no | `0.001` | Hard ceiling. Set it to `0.019` when explicitly choosing Deep. The action aborts **before signing** if the live quote exceeds this or the published mode price |
+| `mode` | no | `quick` | `quick` (0.005 USDC) or `deep` (0.019 USDC, explicit opt-in) |
+| `max-spend-usd` | no | `0.005` | Hard ceiling. Set it to `0.019` when explicitly choosing Deep. The action aborts **before signing** if the live quote exceeds this or the published mode price |
 | `fail-on` | no | `breaking` | `breaking` (fail on BREAKING), `risky` (fail on BREAKING+RISKY), `never` |
 | `private-key` | yes | — | Your x402 EIP-3009 signing key, funded with USDC on Base. Use a GitHub Secret |
 
@@ -99,7 +99,7 @@ X402_PRIVATE_KEY = 0x… (a Base USDC-funded EIP-3009 signing key)
 
 ## Quick vs Deep
 
-- **Quick (0.001 USDC):** low-cost deterministic cross-contract gate for routine CI. Use it on
+- **Quick (0.005 USDC):** low-cost deterministic cross-contract gate for routine CI. Use it on
   every PR.
 - **Deep (0.019 USDC):** higher-evidence analysis. Opt in for ambiguous or
   high-risk changes where the extra evidence changes the release decision.
